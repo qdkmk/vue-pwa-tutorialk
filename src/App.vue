@@ -12,7 +12,35 @@ export default {
   name: 'app',
   components: {
     HelloWorld
-  }
+  },
+  mounted() {
+    var urlParam = location.search.substring(1);
+    var paramArray = [];
+
+    // パラメータが存在確認、無ければ何もしない
+    if (urlParam) {
+        // 「&」が含まれている場合は「&」で分割
+        var param = urlParam.split('&');
+        // パラメータを格納する用の配列を用意
+        // 用意した配列にパラメータを格納
+        for (var i = 0; i < param.length; i++) {
+            var paramItem = param[i].split('=');
+            paramArray[paramItem[0]] = paramItem[1];
+        }
+
+        //if (paramArray.te === "ppp") {
+            //document.getElementById("app").style.display = "none";
+        //}
+        alert("text=" + paramArray.text);
+        alert("url=" + paramArray.url);
+        alert("title=" + paramArray.title);
+        alert("all=" + param);
+
+}
+},
+methods:{
+
+}
 }
 </script>
 
